@@ -1,0 +1,5 @@
+return BlocProvider(
+      create: (context) => WomenCoCubit(),
+      child: BlocConsumer<WomenCoCubit, WomenCoStates>(
+          builder: (context, states) {}, listener: (context, states) {}),
+    );
