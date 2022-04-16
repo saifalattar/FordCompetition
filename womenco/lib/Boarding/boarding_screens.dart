@@ -44,7 +44,7 @@ class _BoardingPageState extends State<BoardingPage> {
                           Image.asset(
                               "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding1.png",
                               height: 532.h,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.cover,
                               width: 414.w),
                           SizedBox(
                             height: 20.h,
@@ -60,8 +60,6 @@ class _BoardingPageState extends State<BoardingPage> {
                           Text(
                             """Looking to hire someone to do house work \nCleaning, Cooking and Caring? We can help!""",
                             style: TextStyle(fontSize: 20, color: Colors.grey),
-                            textWidthBasis: TextWidthBasis.parent,
-                            maxLines: 3,
                           )
                         ],
                       ),
@@ -71,7 +69,7 @@ class _BoardingPageState extends State<BoardingPage> {
                             "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding2.png",
                             height: 532.h,
                             width: 414.w,
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                           ),
                           SizedBox(
                             height: 20.h,
@@ -103,7 +101,10 @@ Womanco allow you to choose the best workers To clean your housemate your food o
                             "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding3.png",
                             height: 532.h,
                             width: 414.w,
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            height: 20.h,
                           ),
                           Text(
                             "Why Choose WomenCo ?",
