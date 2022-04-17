@@ -41,11 +41,8 @@ class _BoardingPageState extends State<BoardingPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(
-                              "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding1.png",
-                              height: 532.h,
-                              fit: BoxFit.cover,
-                              width: 414.w),
+                          Image.asset("assets\\boarding1.png",
+                              height: 532.h, fit: BoxFit.cover, width: 414.w),
                           SizedBox(
                             height: 20.h,
                           ),
@@ -66,7 +63,7 @@ class _BoardingPageState extends State<BoardingPage> {
                       Column(
                         children: [
                           Image.asset(
-                            "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding2.png",
+                            "assets\\boarding2.png",
                             height: 532.h,
                             width: 414.w,
                             fit: BoxFit.cover,
@@ -98,7 +95,7 @@ Womanco allow you to choose the best workers To clean your housemate your food o
                       Column(
                         children: [
                           Image.asset(
-                            "C:\\Users\\Saif\\Desktop\\Women CO\\womenco\\assets\\boarding3.png",
+                            "assets\\boarding3.png",
                             height: 532.h,
                             width: 414.w,
                             fit: BoxFit.cover,

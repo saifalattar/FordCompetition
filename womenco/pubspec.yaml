@@ -31,10 +31,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - C:\Users\Saif\Desktop\Women CO\womenco\assets\boarding1.png
-    - C:\Users\Saif\Desktop\Women CO\womenco\assets\boarding2.png
-    - C:\Users\Saif\Desktop\Women CO\womenco\assets\boarding3.png
-    - C:\Users\Saif\Desktop\Women CO\womenco\assets\shape.png
+    - assets\boarding1.png
+    - assets\boarding2.png
+    - assets\boarding3.png
+    - assets\shape.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
