@@ -83,8 +83,8 @@ class _BoardingPageState extends State<BoardingPage> {
                             padding: const EdgeInsets.all(15),
                             child: Text(
                               """
-Womanco allow you to choose the best workers To clean your housemate your food or take care Of  someone health. 
-""",
+            Womanco allow you to choose the best workers To clean your housemate your food or take care Of  someone health. 
+            """,
                               style:
                                   TextStyle(fontSize: 20, color: Colors.grey),
                               maxLines: 3,

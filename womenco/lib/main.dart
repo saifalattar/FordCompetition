@@ -8,13 +8,18 @@ import 'package:womenco/Boarding/boarding_screens.dart';
 import 'package:womenco/Cubit/bloc.dart';
 import 'package:womenco/Cubit/states.dart';
 
+import 'navigation/navigation_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(ScreenUtilInit(
       builder: () {
-        return MaterialApp(home: BoardingPage());
+        return MaterialApp(
+          home: NavigationScreen(),
+          debugShowCheckedModeBanner: false,
+        );
       },
       designSize: Size(414, 896),
     ));
