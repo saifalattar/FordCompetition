@@ -103,6 +103,7 @@ Widget serviceTile({
     ),
   );
 }
+<<<<<<< HEAD
 
 Widget WomenCoButton({required String title, required Function() onPressed}) {
   return Container(
@@ -122,3 +123,5 @@ Widget WomenCoButton({required String title, required Function() onPressed}) {
             backgroundColor: MaterialStateProperty.all(Colors.pink[200]))),
   );
 }
+=======
+>>>>>>> 83c6799a291479c872d36c3920b81654b34b1693
