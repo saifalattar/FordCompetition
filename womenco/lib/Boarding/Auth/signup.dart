@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/Boarding/Auth/verification.dart';
 import 'package:womenco/Cubit/bloc.dart';
 import 'package:womenco/Cubit/states.dart';
+import 'package:womenco/shared/component/components.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -52,14 +53,17 @@ class _SignUpState extends State<SignUp> {
                       ),
                       SizedBox(height: 30.h),
                       TextField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(labelText: "Email"),
                       ),
                       SizedBox(height: 30.h),
                       TextField(
+                        keyboardType: TextInputType.phone,
                         decoration: InputDecoration(labelText: "Phone Number"),
                       ),
                       SizedBox(height: 30.h),
                       TextField(
+                        keyboardType: TextInputType.visiblePassword,
                         obscureText:
                             WomenCoCubit.GET(context).isPasswordSecured,
                         decoration: InputDecoration(
@@ -95,31 +99,15 @@ class _SignUpState extends State<SignUp> {
                         height: 10.h,
                       ),
                       Center(
-                        child: Container(
-                          width: 364.w,
-                          height: 46.h,
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            VerificationPage()));
-                              },
-                              child: Text(
-                                "SIGN UP",
-                                style: TextStyle(
-                                    fontSize: 23, fontWeight: FontWeight.bold),
-                              ),
-                              style: ButtonStyle(
-                                  enableFeedback: true,
-                                  shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                  )),
-                                  backgroundColor: MaterialStateProperty.all(
-                                      Colors.pink[200]))),
-                        ),
+                        child: WomenCoButton(
+                            title: "SIGN UP",
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          VerificationPage()));
+                            }),
                       )
                     ],
                   ),

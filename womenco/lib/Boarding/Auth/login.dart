@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/Boarding/Auth/signup.dart';
 import 'package:womenco/Cubit/bloc.dart';
 import 'package:womenco/Cubit/states.dart';
+import 'package:womenco/shared/component/components.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -49,6 +50,7 @@ class _LogInState extends State<LogIn> {
                         ),
                         SizedBox(height: 60.h),
                         TextField(
+                          keyboardType: TextInputType.emailAddress,
                           controller: WomenCoCubit.GET(context).email_LogIn,
                           decoration: InputDecoration(labelText: "Email"),
                         ),
@@ -89,26 +91,8 @@ class _LogInState extends State<LogIn> {
                           height: 100.h,
                         ),
                         Center(
-                          child: Container(
-                            width: 364.w,
-                            height: 46.h,
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "SIGN UP",
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                style: ButtonStyle(
-                                    enableFeedback: true,
-                                    shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                    )),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.pink[200]))),
-                          ),
+                          child:
+                              WomenCoButton(title: "LOG IN", onPressed: () {}),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
