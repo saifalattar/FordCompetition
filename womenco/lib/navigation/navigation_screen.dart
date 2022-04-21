@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/shared/component/components.dart';
-import 'home_screen.dart';
+import 'profile screens/home/home_screen.dart';
 import 'order_screen.dart';
 import 'profile screens/profile_screen.dart';
 

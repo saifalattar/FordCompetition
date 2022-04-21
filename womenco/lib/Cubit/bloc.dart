@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:womenco/Cubit/states.dart';
 import 'package:womenco/shared/component/orderClass.dart';
 import 'package:womenco/shared/component/userClass.dart';
+import 'package:womenco/shared/workerClass.dart';
 
 class WomenCoCubit extends Cubit<WomenCoStates> {
   WomenCoCubit() : super(InitialState());
@@ -24,7 +25,7 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
       Name: "saif",
       Email: "saif@gmail.com",
       Phone: "01157131310",
-      profileImageURL: "");
+      profileImageURL: ""); //the current user
 
   List<Order> allOrders = [
     Order(
@@ -44,4 +45,11 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
         year: 2022,
         price: 988),
   ]; //to get all user's orders and put interact with them in orders screen page
+
+  List<Worker> allCleaningWorkers =
+      []; //to add all workers in cleaning from database
+  List<Worker> allCookingWorkers =
+      []; //to add all workers in cooking from database
+  List<Worker> allNursingWorkers =
+      []; //to add all workers in nursing from database
 }

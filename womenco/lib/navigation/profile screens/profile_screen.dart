@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/Cubit/bloc.dart';
 import 'package:womenco/Cubit/states.dart';
 import 'package:womenco/navigation/profile%20screens/editProfile.dart';
+import 'package:womenco/shared/component/components.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -78,6 +79,40 @@ class ProfileScreen extends StatelessWidget {
                             ))
                       ],
                     ),
+                    Divider(),
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.grey,
+                          fontFamily: "Avenir"),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          settingsButton(
+                              title: "Language",
+                              icon: Icons.language,
+                              onPressed: () {}),
+                          settingsButton(
+                              title: "Help",
+                              icon: Icons.help,
+                              onPressed: () {}),
+                          settingsButton(
+                              title: "Contact Us",
+                              icon: Icons.call,
+                              onPressed: () {}),
+                          settingsButton(
+                              title: "Sign Out",
+                              icon: Icons.logout,
+                              onPressed: () {}),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),

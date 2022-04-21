@@ -122,3 +122,38 @@ Widget WomenCoButton({required String title, required Function() onPressed}) {
             backgroundColor: MaterialStateProperty.all(Colors.pink[200]))),
   );
 }
+
+Widget settingsButton(
+    {required String title,
+    required IconData icon,
+    required Function() onPressed}) {
+  return ElevatedButton(
+      style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent)),
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Icon(
+                icon,
+                color: Colors.black,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                title,
+                style: TextStyle(color: Colors.black),
+              ),
+            ],
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.black,
+          )
+        ],
+      ));
+}

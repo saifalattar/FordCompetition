@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/shared/component/components.dart';
+import 'package:womenco/shared/workerClass.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -44,6 +45,23 @@ class HomeScreen extends StatelessWidget {
                     serviceImage: "assets/nursing.png"),
               ],
             ),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Worker(
+                              imageURL: "",
+                              name: "AnyBody",
+                              lastOrderDate_Day: 3,
+                              lastOrderDate_Month: 5,
+                              lastOrderDate_Year: 2022,
+                              profession: "Cleaning",
+                              numOfOrders: 54,
+                              rate: 2.75,
+                              availability: false)));
+                },
+                child: Text("Just to see the worker page "))
           ],
         ),
       ),
