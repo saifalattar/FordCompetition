@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/navigation/profile%20screens/home/subHome/cleaningcreens.dart';
+import 'package:womenco/navigation/profile%20screens/home/subHome/cookingScreens.dart';
+import 'package:womenco/navigation/profile%20screens/home/subHome/nursingScreens.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/shared/workerClass.dart';
 
@@ -25,24 +28,44 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                serviceTile(
-                    context: context,
-                    color1: Color(0XFF84D2F4),
-                    color2: Color(0XFF57B7EB),
-                    serviceName: "Cleaning",
-                    serviceImage: "assets/cleaning.png"),
-                serviceTile(
-                    context: context,
-                    color1: Color(0XFFFBF392),
-                    color2: Color(0XFFF9EE64),
-                    serviceName: "Cooking",
-                    serviceImage: "assets/cooking.png"),
-                serviceTile(
-                    context: context,
-                    color1: Color(0XFFFD8087),
-                    color2: Color(0XFFFE636E),
-                    serviceName: "Nursing",
-                    serviceImage: "assets/nursing.png"),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CleaningPage()));
+                  },
+                  child: serviceTile(
+                      context: context,
+                      color1: Color(0XFF84D2F4),
+                      color2: Color(0XFF57B7EB),
+                      serviceName: "Cleaning",
+                      serviceImage: "assets/cleaning.png"),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CookingPage()));
+                  },
+                  child: serviceTile(
+                      context: context,
+                      color1: Color(0XFFFBF392),
+                      color2: Color(0XFFF9EE64),
+                      serviceName: "Cooking",
+                      serviceImage: "assets/cooking.png"),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NursingPage()));
+                  },
+                  child: serviceTile(
+                      context: context,
+                      color1: Color(0XFFFD8087),
+                      color2: Color(0XFFFE636E),
+                      serviceName: "Nursing",
+                      serviceImage: "assets/nursing.png"),
+                ),
               ],
             ),
             RaisedButton(

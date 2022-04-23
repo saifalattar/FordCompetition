@@ -104,7 +104,11 @@ Widget serviceTile({
   );
 }
 
-Widget WomenCoButton({required String title, required Function() onPressed}) {
+// ignore: non_constant_identifier_names
+Widget WomenCoButton(
+    {required String title,
+    required Function() onPressed,
+    Color? color = Colors.pink}) {
   return Container(
     width: 364.w,
     height: 46.h,
@@ -119,7 +123,7 @@ Widget WomenCoButton({required String title, required Function() onPressed}) {
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
             )),
-            backgroundColor: MaterialStateProperty.all(Colors.pink[200]))),
+            backgroundColor: MaterialStateProperty.all(color))),
   );
 }
 

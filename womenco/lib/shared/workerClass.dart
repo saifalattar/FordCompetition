@@ -116,7 +116,8 @@ class Worker extends StatelessWidget {
           ]),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 45.0),
-            child: WomenCoButton(title: "Hire Now", onPressed: () {}),
+            child: WomenCoButton(
+                title: "Hire Now", onPressed: () {}, color: Colors.pink[200]),
           ),
         ],
       ),
