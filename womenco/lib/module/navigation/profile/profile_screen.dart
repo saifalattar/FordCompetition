@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/Cubit/bloc.dart';
 import 'package:womenco/Cubit/states.dart';
-import 'package:womenco/navigation/profile%20screens/editProfile.dart';
+import 'package:womenco/module/navigation/profile/editProfile.dart';
 import 'package:womenco/shared/component/components.dart';
 
 class ProfileScreen extends StatelessWidget {

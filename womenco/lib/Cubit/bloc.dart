@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:womenco/Cubit/states.dart';
-import 'package:womenco/shared/component/orderClass.dart';
-import 'package:womenco/shared/component/userClass.dart';
-import 'package:womenco/shared/workerClass.dart';
+import 'package:womenco/model/orderClass.dart';
+import 'package:womenco/model/userClass.dart';
+import 'package:womenco/model/workerClass.dart';
 
 class WomenCoCubit extends Cubit<WomenCoStates> {
   WomenCoCubit() : super(InitialState());

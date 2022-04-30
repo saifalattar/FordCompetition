@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/module/navigation/home/home_screen.dart';
+import 'package:womenco/module/navigation/order_screen.dart';
+import 'package:womenco/module/navigation/profile/profile_screen.dart';
 import 'package:womenco/shared/component/components.dart';
-import 'profile screens/home/home_screen.dart';
-import 'order_screen.dart';
-import 'profile screens/profile_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({Key? key}) : super(key: key);

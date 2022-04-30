@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/navigation/profile%20screens/home/subHome/cleaningcreens.dart';
-import 'package:womenco/navigation/profile%20screens/home/subHome/cookingScreens.dart';
-import 'package:womenco/navigation/profile%20screens/home/subHome/nursingScreens.dart';
+import 'package:womenco/module/subHome/cleaningcreens.dart';
+import 'package:womenco/module/subHome/cookingScreens.dart';
+import 'package:womenco/module/subHome/nursingScreens.dart';
 import 'package:womenco/shared/component/components.dart';
-import 'package:womenco/shared/workerClass.dart';
+import 'package:womenco/model/workerClass.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
