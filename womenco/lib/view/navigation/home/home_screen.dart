@@ -7,6 +7,7 @@ import 'package:womenco/view/navigation/home/cookingScreens.dart';
 import 'package:womenco/view/navigation/home/nursingScreens.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/model/workerClass.dart';
+import 'package:womenco/view/style/colors.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -37,8 +38,8 @@ class HomeScreen extends StatelessWidget {
                   },
                   child: serviceTile(
                       context: context,
-                      color1: Color(0XFF84D2F4),
-                      color2: Color(0XFF57B7EB),
+                      color1: cleaningColor1,
+                      color2: cleaningColor2,
                       serviceName: "Cleaning",
                       serviceImage: "assets/cleaning.png"),
                 ),
@@ -49,8 +50,8 @@ class HomeScreen extends StatelessWidget {
                   },
                   child: serviceTile(
                       context: context,
-                      color1: Color(0XFFFBF392),
-                      color2: Color(0XFFF9EE64),
+                      color1: cookingColor1,
+                      color2: cookingColor2,
                       serviceName: "Cooking",
                       serviceImage: "assets/cooking.png"),
                 ),
@@ -61,8 +62,8 @@ class HomeScreen extends StatelessWidget {
                   },
                   child: serviceTile(
                       context: context,
-                      color1: Color(0XFFFD8087),
-                      color2: Color(0XFFFE636E),
+                      color1: nursingColor1,
+                      color2: nursingColor2,
                       serviceName: "Nursing",
                       serviceImage: "assets/nursing.png"),
                 ),

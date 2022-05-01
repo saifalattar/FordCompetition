@@ -3,6 +3,13 @@ import 'package:flutter/material.dart';
 const buttonColor1 = const Color(0xFFFFAFB1);
 const fontColor1 = const Color(0xFF57B7EB);
 
+const cleaningColor1 = const Color(0XFF84D2F4);
+const cleaningColor2 = const Color(0XFF57B7EB);
+const cookingColor1 = const Color(0XFFFBF392);
+const cookingColor2 = const Color(0XFFF9EE64);
+const nursingColor1 = const Color(0xFFFD8087);
+const nursingColor2 = const Color(0XFFFE636E);
+
 Map<int, Color> swatch = {
   50: Color.fromRGBO(87, 183, 235, .1),
   100: Color.fromRGBO(87, 183, 235, .2),
