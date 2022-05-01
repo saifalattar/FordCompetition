@@ -105,7 +105,6 @@ Widget serviceTile({
   );
 }
 
-// ignore: non_constant_identifier_names
 Widget WomenCoButton(
     {required String title,
     required Function() onPressed,
@@ -117,7 +116,32 @@ Widget WomenCoButton(
         onPressed: onPressed,
         child: Text(
           title,
-          style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontSize: 23, fontWeight: FontWeight.bold),
+        ),
+        style: ButtonStyle(
+            enableFeedback: true,
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            )),
+            backgroundColor: MaterialStateProperty.all(color))),
+  );
+}
+
+// The one for google & facebook signup option
+Widget WomenCoButton2(
+    {required String title,
+    required Function() onPressed,
+    Color? color = Colors.white}) {
+  return Container(
+    width: 318.w,
+    height: 58.h,
+    child: ElevatedButton(
+        onPressed: onPressed,
+        child: Text(
+          title,
+          style: TextStyle(
+              color: Colors.grey, fontSize: 19, fontWeight: FontWeight.bold),
         ),
         style: ButtonStyle(
             enableFeedback: true,

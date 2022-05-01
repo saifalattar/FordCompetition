@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/view/navigation/navigation_screen.dart';
 
 import 'view/Boarding/boarding_screens.dart';
+import 'view/style/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,9 @@ void main() {
     runApp(ScreenUtilInit(
       builder: () {
         return MaterialApp(
+          theme: ThemeData(
+            primarySwatch: customSwatch,
+          ),
           home: BoardingPage(),
           debugShowCheckedModeBanner: false,
         );

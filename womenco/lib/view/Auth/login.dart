@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/view/navigation/navigation_screen.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
 import 'package:womenco/view/Auth/signup.dart';
@@ -44,9 +45,11 @@ class _LogInState extends State<LogIn> {
                         Text(
                           "Welcome \nBack",
                           style: TextStyle(
-                              color: Colors.blue[300],
-                              fontSize: 45,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.blue[300],
+                            fontSize: 45,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Avenir",
+                          ),
                         ),
                         SizedBox(height: 60.h),
                         TextField(
@@ -64,8 +67,8 @@ class _LogInState extends State<LogIn> {
                               suffixIcon: IconButton(
                                 icon:
                                     WomenCoCubit.GET(context).isPasswordSecured
-                                        ? Icon(Icons.visibility)
-                                        : Icon(Icons.visibility_off),
+                                        ? Icon(Icons.visibility_off)
+                                        : Icon(Icons.visibility),
                                 onPressed: () {
                                   setState(() {
                                     WomenCoCubit.GET(context)
@@ -83,7 +86,12 @@ class _LogInState extends State<LogIn> {
                             children: [
                               TextButton(
                                   onPressed: () {},
-                                  child: Text("Forgot your password ?")),
+                                  child: Text(
+                                    "Forgot your password ?",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )),
                             ],
                           ),
                         ),
@@ -91,8 +99,15 @@ class _LogInState extends State<LogIn> {
                           height: 100.h,
                         ),
                         Center(
-                          child:
-                              WomenCoButton(title: "LOG IN", onPressed: () {}),
+                          child: WomenCoButton(
+                              title: "LOG IN",
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            NavigationScreen()));
+                              }),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +120,12 @@ class _LogInState extends State<LogIn> {
                                       MaterialPageRoute(
                                           builder: (context) => SignUp()));
                                 },
-                                child: Text("Sign Up"))
+                                child: Text(
+                                  "Sign Up",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
                           ],
                         )
                       ])),
