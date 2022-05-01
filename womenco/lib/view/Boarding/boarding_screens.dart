@@ -23,94 +23,91 @@ class _BoardingPageState extends State<BoardingPage> {
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(),
         context: context, designSize: Size(414, 896));
-    return BlocProvider(
-      create: (context) => WomenCoCubit(),
-      child: BlocConsumer<WomenCoCubit, WomenCoStates>(
-        listener: (context, states) {},
-        builder: (context, states) {
-          return Scaffold(
-              body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 1,
-                child: PageView(
-                  onPageChanged: (index) {
-                    setState(() {
-                      dotPosition = double.parse(index.toString());
-                    });
-                  },
-                  controller: PageController(),
-                  clipBehavior: Clip.none,
-                  children: [
-                    customizedPageViewItem(
-                        image: "assets/boarding1.png",
-                        headline: "Welcome To WomenCo",
-                        description:
-                            "Looking to hire someone to do house work. Cleaning, Cooking and Caring? We can help!"),
-                    customizedPageViewItem(
-                        image: "assets/boarding2.png",
-                        headline: "Find the best choose",
-                        description:
-                            "Womanco allow you to choose the best workers To clean your housemate your food or take care of someone health."),
-                    customizedPageViewItem(
-                        image: "assets/boarding3.png",
-                        headline: "Why Choose WomenCo ?",
-                        description:
-                            "WomenCo provides you with security and Healthy Insurance for all workers and ease of ordering.")
-                  ],
-                ),
-              ),
-              DotsIndicator(
-                decorator: DotsDecorator(
-                  size: const Size.square(9.0),
-                  color: Colors.grey.shade300,
-                  activeSize: const Size(35.0, 9.0),
-                  activeColor: fontColor1,
-                  activeShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0)),
-                ),
-                dotsCount: 3,
-                position: dotPosition,
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
-              WomenCoButton(
-                title: "CREATE ACCOUNT",
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUp()));
+    return BlocConsumer<WomenCoCubit, WomenCoStates>(
+      listener: (context, states) {},
+      builder: (context, states) {
+        return Scaffold(
+            body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 1,
+              child: PageView(
+                onPageChanged: (index) {
+                  setState(() {
+                    dotPosition = double.parse(index.toString());
+                  });
                 },
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                controller: PageController(),
+                clipBehavior: Clip.none,
                 children: [
-                  Text(
-                    "Already have an account ? ",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[600],
-                        fontSize: 18),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => LogIn()));
-                      },
-                      child: Text(
-                        "Log In",
-                        style: TextStyle(fontSize: 18, color: fontColor1),
-                      ))
+                  customizedPageViewItem(
+                      image: "assets/boarding1.png",
+                      headline: "Welcome To WomenCo",
+                      description:
+                          "Looking to hire someone to do house work. Cleaning, Cooking and Caring? We can help!"),
+                  customizedPageViewItem(
+                      image: "assets/boarding2.png",
+                      headline: "Find the best choose",
+                      description:
+                          "Womanco allow you to choose the best workers To clean your housemate your food or take care of someone health."),
+                  customizedPageViewItem(
+                      image: "assets/boarding3.png",
+                      headline: "Why Choose WomenCo ?",
+                      description:
+                          "WomenCo provides you with security and Healthy Insurance for all workers and ease of ordering.")
                 ],
-              )
-            ],
-          ));
-        },
-      ),
+              ),
+            ),
+            DotsIndicator(
+              decorator: DotsDecorator(
+                size: const Size.square(9.0),
+                color: Colors.grey.shade300,
+                activeSize: const Size(35.0, 9.0),
+                activeColor: fontColor1,
+                activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+              ),
+              dotsCount: 3,
+              position: dotPosition,
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            WomenCoButton(
+              title: "CREATE ACCOUNT",
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => SignUp()));
+              },
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Already have an account ? ",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[600],
+                      fontSize: 18),
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LogIn()));
+                    },
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(fontSize: 18, color: fontColor1),
+                    ))
+              ],
+            )
+          ],
+        ));
+      },
     );
   }
 }

@@ -1,14 +1,23 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:womenco/model/orderClass.dart';
 import 'package:womenco/model/userClass.dart';
 import 'package:womenco/model/workerClass.dart';
+import 'package:womenco/view/navigation/home/home_screen.dart';
+import 'package:womenco/view/navigation/order_screen.dart';
+import 'package:womenco/view/navigation/profile/profile_screen.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
 
 class WomenCoCubit extends Cubit<WomenCoStates> {
   WomenCoCubit() : super(InitialState());
+  //-----------------------------Constructor-----------------------------//
+
   static WomenCoCubit GET(context) => BlocProvider.of(context);
 
+//-----------------------------Variables-----------------------------//
   bool isPasswordSecured = true;
 
   var email_SignUp = TextEditingController();
@@ -20,6 +29,29 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
   var name_SignUp = TextEditingController();
 
   var phone_SignUp = TextEditingController();
+
+  int currentIndex = 0;
+
+  List<Widget> screens = [
+    HomeScreen(),
+    OrderScreen(),
+    ProfileScreen(),
+  ];
+
+  List<BottomNavigationBarItem> bottomItems = [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home_outlined),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.receipt_outlined),
+      label: 'Orders',
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person_outline_rounded),
+      label: 'Profile',
+    ),
+  ];
 
   User user = User(
       Name: "saif",
@@ -52,4 +84,10 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
       []; //to add all workers in cooking from database
   List<Worker> allNursingWorkers =
       []; //to add all workers in nursing from database
+
+  //-----------------------------Methods-----------------------------//
+  void changeBottomNav(index) {
+    currentIndex = index;
+    emit(ChangeBottomNavState());
+  }
 }

@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/view/subHome/cleaningcreens.dart';
-import 'package:womenco/view/subHome/cookingScreens.dart';
-import 'package:womenco/view/subHome/nursingScreens.dart';
+import 'package:womenco/view/navigation/home/cleaningcreens.dart';
+import 'package:womenco/view/navigation/home/cookingScreens.dart';
+import 'package:womenco/view/navigation/home/nursingScreens.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/model/workerClass.dart';
 

@@ -8,6 +8,7 @@ Widget customizedNavBar({
   required var selectedIndex,
   required var onItemTapped,
   required var context,
+  required var bottomItemsList,
 }) {
   ScreenUtil.init(BoxConstraints(),
       context: context, designSize: Size(414, 896));
@@ -32,20 +33,7 @@ Widget customizedNavBar({
           unselectedItemColor: Color(0XFFB1B1B1),
           selectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.receipt_outlined),
-              label: 'Orders',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline_rounded),
-              label: 'Profile',
-            ),
-          ],
+          items: bottomItemsList,
           currentIndex: selectedIndex,
           onTap: onItemTapped,
         ),

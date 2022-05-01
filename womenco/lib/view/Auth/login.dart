@@ -20,118 +20,111 @@ class _LogInState extends State<LogIn> {
     ScreenUtil.init(BoxConstraints(),
         context: context, designSize: Size(414, 896));
 
-    return BlocProvider(
-      create: (context) => WomenCoCubit(),
-      child: BlocConsumer<WomenCoCubit, WomenCoStates>(
-          builder: (context, states) {
-            return Scaffold(
-                appBar: AppBar(
-                    elevation: 0,
-                    backgroundColor: Colors.transparent,
-                    leading: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.arrow_back_ios),
-                      color: Colors.black,
-                    )),
-                body: Container(
-                  margin:
-                      EdgeInsets.symmetric(horizontal: 50.w, vertical: 25.h),
-                  child: SingleChildScrollView(
+    return BlocConsumer<WomenCoCubit, WomenCoStates>(
+      listener: (context, states) {},
+      builder: (context, states) {
+        return Scaffold(
+            appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back_ios),
+                  color: Colors.black,
+                )),
+            body: Container(
+              margin: EdgeInsets.symmetric(horizontal: 50.w, vertical: 25.h),
+              child: SingleChildScrollView(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                    Text(
+                      "Welcome \nBack",
+                      style: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Avenir",
+                      ),
+                    ),
+                    SizedBox(height: 60.h),
+                    TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: WomenCoCubit.GET(context).email_LogIn,
+                      decoration: InputDecoration(labelText: "Email"),
+                    ),
+                    SizedBox(height: 30.h),
+                    TextField(
+                      keyboardType: TextInputType.visiblePassword,
+                      obscureText: WomenCoCubit.GET(context).isPasswordSecured,
+                      decoration: InputDecoration(
+                          labelText: "Password",
+                          suffixIcon: IconButton(
+                            icon: WomenCoCubit.GET(context).isPasswordSecured
+                                ? Icon(Icons.visibility_off)
+                                : Icon(Icons.visibility),
+                            onPressed: () {
+                              setState(() {
+                                WomenCoCubit.GET(context).isPasswordSecured =
+                                    !WomenCoCubit.GET(context)
+                                        .isPasswordSecured;
+                              });
+                            },
+                          )),
+                    ),
+                    Container(
+                      width: double.infinity,
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                        Text(
-                          "Welcome \nBack",
-                          style: TextStyle(
-                            color: Colors.blue[300],
-                            fontSize: 45,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Avenir",
-                          ),
-                        ),
-                        SizedBox(height: 60.h),
-                        TextField(
-                          keyboardType: TextInputType.emailAddress,
-                          controller: WomenCoCubit.GET(context).email_LogIn,
-                          decoration: InputDecoration(labelText: "Email"),
-                        ),
-                        SizedBox(height: 30.h),
-                        TextField(
-                          keyboardType: TextInputType.visiblePassword,
-                          obscureText:
-                              WomenCoCubit.GET(context).isPasswordSecured,
-                          decoration: InputDecoration(
-                              labelText: "Password",
-                              suffixIcon: IconButton(
-                                icon:
-                                    WomenCoCubit.GET(context).isPasswordSecured
-                                        ? Icon(Icons.visibility_off)
-                                        : Icon(Icons.visibility),
-                                onPressed: () {
-                                  setState(() {
-                                    WomenCoCubit.GET(context)
-                                            .isPasswordSecured =
-                                        !WomenCoCubit.GET(context)
-                                            .isPasswordSecured;
-                                  });
-                                },
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot your password ?",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               )),
-                        ),
-                        Container(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Forgot your password ?",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100.h,
-                        ),
-                        Center(
-                          child: WomenCoButton(
-                              title: "LOG IN",
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            NavigationScreen()));
-                              }),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Don't have an account ? "),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => SignUp()));
-                                },
-                                child: Text(
-                                  "Sign Up",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )),
-                          ],
-                        )
-                      ])),
-                ));
-          },
-          listener: (context, states) {}),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                    Center(
+                      child: WomenCoButton(
+                          title: "LOG IN",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavigationScreen()));
+                          }),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don't have an account ? "),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUp()));
+                            },
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                      ],
+                    )
+                  ])),
+            ));
+      },
     );
   }
 }
