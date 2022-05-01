@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/Cubit/bloc.dart';
-import 'package:womenco/Cubit/states.dart';
+import 'package:womenco/viewModel/cubit/bloc.dart';
+import 'package:womenco/viewModel/cubit/states.dart';
 import 'package:womenco/shared/component/components.dart';
 
 class CookingPage extends StatefulWidget {

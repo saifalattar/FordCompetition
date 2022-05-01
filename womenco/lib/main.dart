@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/module/navigation/navigation_screen.dart';
+import 'package:womenco/view/navigation/navigation_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

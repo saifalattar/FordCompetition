@@ -2,10 +2,10 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/Cubit/bloc.dart';
-import 'package:womenco/Cubit/states.dart';
-import 'package:womenco/module/Auth/login.dart';
-import 'package:womenco/module/Auth/signup.dart';
+import 'package:womenco/viewModel/cubit/bloc.dart';
+import 'package:womenco/viewModel/cubit/states.dart';
+import 'package:womenco/view/Auth/login.dart';
+import 'package:womenco/view/Auth/signup.dart';
 
 class BoardingPage extends StatefulWidget {
   const BoardingPage({Key? key}) : super(key: key);

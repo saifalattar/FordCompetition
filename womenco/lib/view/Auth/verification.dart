@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:womenco/Cubit/bloc.dart';
-import 'package:womenco/Cubit/states.dart';
+import 'package:womenco/viewModel/cubit/bloc.dart';
+import 'package:womenco/viewModel/cubit/states.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({Key? key}) : super(key: key);

@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/module/navigation/home/home_screen.dart';
-import 'package:womenco/module/navigation/order_screen.dart';
-import 'package:womenco/module/navigation/profile/profile_screen.dart';
+import 'package:womenco/view/navigation/home/home_screen.dart';
+import 'package:womenco/view/navigation/order_screen.dart';
+import 'package:womenco/view/navigation/profile/profile_screen.dart';
 import 'package:womenco/shared/component/components.dart';
 
 class NavigationScreen extends StatefulWidget {
