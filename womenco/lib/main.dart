@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/view/navigation/navigation_screen.dart';
 
+import 'view/Boarding/boarding_screens.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -10,9 +12,7 @@ void main() {
     runApp(ScreenUtilInit(
       builder: () {
         return MaterialApp(
-          home:
-              NavigationScreen() //for authentication page write BoardingPage()
-          ,
+          home: BoardingPage(),
           debugShowCheckedModeBanner: false,
         );
       },

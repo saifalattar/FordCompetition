@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/view/style/colors.dart';
 
 Widget customizedNavBar({
   required var selectedIndex,
@@ -108,7 +109,7 @@ Widget serviceTile({
 Widget WomenCoButton(
     {required String title,
     required Function() onPressed,
-    Color? color = Colors.pink}) {
+    Color? color = buttonColor1}) {
   return Container(
     width: 364.w,
     height: 46.h,
@@ -161,3 +162,37 @@ Widget settingsButton(
         ],
       ));
 }
+
+Widget customizedPageViewItem({
+  required String image,
+  required String headline,
+  required String description,
+}) =>
+    Column(
+      children: [
+        Image.asset(
+          "${image}",
+          height: 532.h,
+          width: 414.w,
+          fit: BoxFit.cover,
+        ),
+        SizedBox(
+          height: 20.h,
+        ),
+        Text(
+          "${headline}",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 20.h,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Text(
+            """${description}""",
+            style: TextStyle(fontSize: 20, color: Colors.grey),
+            maxLines: 3,
+          ),
+        )
+      ],
+    );
