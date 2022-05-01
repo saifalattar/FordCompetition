@@ -3,9 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/view/navigation/home/home_screen.dart';
-import 'package:womenco/view/navigation/order_screen.dart';
-import 'package:womenco/view/navigation/profile/profile_screen.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
