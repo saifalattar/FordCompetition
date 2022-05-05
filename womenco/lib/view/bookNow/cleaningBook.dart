@@ -40,7 +40,12 @@ class _CleaningBookState extends State<CleaningBook> {
   var governorateController;
   List<String> governorateList = ["Giza", "Cairo"];
   var cityController;
-  List<String> cityList = ["Giza", "Cairo"];
+  List<String> cityList = [
+    "Maadi",
+    "Nasr City",
+    "6th of October",
+    "5th Settelment"
+  ];
   var streetController;
 
   // Date Variables
