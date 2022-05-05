@@ -5,6 +5,7 @@ const fontColor1 = const Color(0xFF57B7EB);
 
 const cleaningColor1 = const Color(0XFF84D2F4);
 const cleaningColor2 = const Color(0XFF57B7EB);
+const cleaningColor3 = const Color(0XFF6CC4EF);
 const cookingColor1 = const Color(0XFFFBF392);
 const cookingColor2 = const Color(0XFFF9EE64);
 const nursingColor1 = const Color(0xFFFD8087);

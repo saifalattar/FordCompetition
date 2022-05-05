@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/shared/component/components.dart';
+import 'package:womenco/view/bookNow/cleaningBook.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
 
@@ -225,7 +226,13 @@ class CleaningPage extends StatelessWidget {
                           Center(
                             child: WomenCoButton(
                                 title: "Book Now",
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              CleaningBook()));
+                                },
                                 color: Colors.blue[200]),
                           )
                         ],

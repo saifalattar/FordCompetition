@@ -19,6 +19,8 @@ dependencies:
   dots_indicator: ^2.1.0
   pin_code_fields: ^7.4.0
   flutter_rating_stars:
+  group_button: ^5.0.0
+  syncfusion_flutter_datepicker: ^20.1.52
 
 dev_dependencies:
   flutter_test:

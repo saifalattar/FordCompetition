@@ -208,3 +208,29 @@ Widget customizedPageViewItem({
         )
       ],
     );
+
+AppBar customizedAppBar(var context) => AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(Icons.arrow_back_ios),
+      ),
+    );
+
+Widget customizedDivider() => Column(
+      children: [
+        SizedBox(height: 25.h),
+        const Divider(
+          thickness: 0,
+          color: Colors.grey,
+        ),
+        SizedBox(
+          height: 25.h,
+        ),
+      ],
+    );
+
+//

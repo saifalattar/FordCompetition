@@ -18,19 +18,15 @@ class ProfileScreen extends StatelessWidget {
       listener: (context, states) {},
       builder: (context, states) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            title: Center(
-                child: Text(
-              "My Profile",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            )),
-          ),
           body: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(
               children: [
+                Center(
+                    child: Text(
+                  "My Profile",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                )),
                 SizedBox(
                   height: 26.h,
                 ),

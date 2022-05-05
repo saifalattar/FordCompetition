@@ -2,11 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco/view/navigation/home/cleaningcreens.dart';
+import 'package:womenco/view/navigation/home/cleaningScreens.dart';
 import 'package:womenco/view/navigation/home/cookingScreens.dart';
 import 'package:womenco/view/navigation/home/nursingScreens.dart';
 import 'package:womenco/shared/component/components.dart';
-import 'package:womenco/model/workerClass.dart';
 import 'package:womenco/view/style/colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -69,23 +68,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            RaisedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Worker(
-                              imageURL: "",
-                              name: "AnyBody",
-                              lastOrderDate_Day: 3,
-                              lastOrderDate_Month: 5,
-                              lastOrderDate_Year: 2022,
-                              profession: "Cleaning",
-                              numOfOrders: 54,
-                              rate: 2.75,
-                              availability: false)));
-                },
-                child: Text("Just to see the worker page "))
           ],
         ),
       ),
