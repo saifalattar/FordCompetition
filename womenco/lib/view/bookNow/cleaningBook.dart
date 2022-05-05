@@ -50,7 +50,7 @@ class _CleaningBookState extends State<CleaningBook> {
   TimeOfDay timeOfDay = const TimeOfDay(hour: 8, minute: 30);
   var timeController = TextEditingController();
 
-  var verificationCode = "123456";
+  var verificationCode = "123456"; //remove (just for test)
 
   @override
   Widget build(BuildContext context) {
