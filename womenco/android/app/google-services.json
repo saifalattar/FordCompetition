@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "587612355651",
+    "project_id": "womenco-e1e79",
+    "storage_bucket": "womenco-e1e79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587612355651:android:4ed691df404f60eec5a8f6",
+        "android_client_info": {
+          "package_name": "com.example.womenco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587612355651-l0tk7t2hs9k4n4d5qbvuo5rf485od3f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.womenco",
+            "certificate_hash": "db5d19bef348146f130f7f903652eaa7b7a76163"
+          }
+        },
+        {
+          "client_id": "587612355651-jc24fuuqifh9tnq1esrc3lotbfnlprii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIKMTubdqS1qQNqMr8-zY0Kw70HYh-2dE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587612355651-jc24fuuqifh9tnq1esrc3lotbfnlprii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

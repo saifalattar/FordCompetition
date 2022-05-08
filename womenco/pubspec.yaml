@@ -21,6 +21,11 @@ dependencies:
   flutter_rating_stars:
   group_button: ^5.0.0
   syncfusion_flutter_datepicker: ^20.1.52
+  firebase_messaging: 
+  firebase_core:
+  firebase_messaging_platform_interface: 3.1.6
+  flutter_local_notifications:
+
 
 dev_dependencies:
   flutter_test:

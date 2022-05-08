@@ -1,7 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/view/Auth/login.dart';
 import 'package:womenco/view/bookNow/cleaningBook.dart';
 import 'package:womenco/view/navigation/navigation_screen.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
@@ -10,16 +14,53 @@ import 'package:womenco/viewModel/cubit/states.dart';
 import 'view/Boarding/boarding_screens.dart';
 import 'view/style/colors.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp(MyApp());
+void receiveNotification(context) async {
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    FlutterLocalNotificationsPlugin()
+        .show(0, "dw", "body", NotificationDetails());
+  });
+
+  FirebaseMessaging.onMessageOpenedApp.listen((event) async {
+    print("saaaaaaaaaaaaaaaaaaaaaaif");
+    if (event.data['screen'] == "LogIn") {
+      navkey.currentState!
+          .push(MaterialPageRoute(builder: (context) => LogIn()));
+    }
   });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+var navkey = GlobalKey<NavigatorState>();
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  print(await FirebaseMessaging.instance
+      .getToken()); // to get the current device FCM token
+
+  final FirebaseMessaging notifications = FirebaseMessaging.instance;
+
+  NotificationSettings settings = await notifications.requestPermission(
+    alert: true,
+    badge: true,
+    provisional: false,
+    sound: true,
+  );
+
+  await notifications.setForegroundNotificationPresentationOptions(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
+
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(UsersApp());
+  });
+}
+
+class UsersApp extends StatelessWidget {
+  const UsersApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +69,11 @@ class MyApp extends StatelessWidget {
       child: BlocConsumer<WomenCoCubit, WomenCoStates>(
         listener: (context, states) {},
         builder: (context, states) {
+          receiveNotification(context);
           return ScreenUtilInit(
             builder: () {
               return MaterialApp(
+                navigatorKey: navkey,
                 theme: ThemeData(
                   primarySwatch: customSwatch,
                 ),
