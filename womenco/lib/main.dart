@@ -85,7 +85,7 @@ class UsersApp extends StatelessWidget {
                 theme: ThemeData(
                   primarySwatch: customSwatch,
                 ),
-                home: BoardingPage(),
+                home: NavigationScreen(),
                 debugShowCheckedModeBanner: false,
               );
             },
