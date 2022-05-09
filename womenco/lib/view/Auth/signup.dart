@@ -51,28 +51,32 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: 51.h),
                   TextField(
+                    controller: WomenCoCubit.GET(context).name_SignUp,
                     decoration: InputDecoration(labelText: "Name"),
                   ),
                   SizedBox(height: 30.h),
                   TextField(
+                    controller: WomenCoCubit.GET(context).email_SignUp,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(labelText: "Email"),
                   ),
                   SizedBox(height: 30.h),
                   TextField(
+                    controller: WomenCoCubit.GET(context).phone_SignUp,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(labelText: "Phone Number"),
                   ),
                   SizedBox(height: 30.h),
                   TextField(
+                    controller: WomenCoCubit.GET(context).password_SignUp,
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: WomenCoCubit.GET(context).isPasswordSecured,
                     decoration: InputDecoration(
                         labelText: "Password",
                         suffixIcon: IconButton(
                           icon: WomenCoCubit.GET(context).isPasswordSecured
-                              ? Icon(Icons.visibility_off)
-                              : Icon(Icons.visibility),
+                              ? Icon(Icons.visibility)
+                              : Icon(Icons.visibility_off),
                           onPressed: () {
                             setState(() {
                               WomenCoCubit.GET(context).isPasswordSecured =
@@ -84,51 +88,51 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(height: 30.h),
                   Row(
                     children: [
-                      Checkbox(
-                          shape: CircleBorder(),
-                          value: isAgree,
-                          onChanged: (bool? isAgreed) {
-                            setState(() {
-                              isAgree = isAgreed;
-                            });
-                          }),
+                      // Checkbox(
+                      //     shape: CircleBorder(),
+                      //     value: isAgree,
+                      //     onChanged: (bool? isAgreed) {
+                      //       setState(() {
+                      //         isAgree = isAgreed;
+                      //       });
+                      //     }),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            children: [
-                              Text("I agree to the"),
-                              SizedBox(
-                                height: 31.h,
-                                child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Terms & Conditions",
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    )),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text("and"),
-                              SizedBox(
-                                height: 31.h,
-                                child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Privacy & Policy",
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    )),
-                              ),
-                            ],
-                          )
+                          // Row(
+                          //   children: [
+                          //     Text("I agree to the"),
+                          //     SizedBox(
+                          //       height: 31.h,
+                          //       child: TextButton(
+                          //           onPressed: () {},
+                          //           child: Text(
+                          //             "Terms & Conditions",
+                          //             style: TextStyle(
+                          //               fontSize: 13,
+                          //               fontWeight: FontWeight.bold,
+                          //             ),
+                          //           )),
+                          //     ),
+                          //   ],
+                          // ),
+                          // Row(
+                          //   children: [
+                          //     Text("and"),
+                          //     SizedBox(
+                          //       height: 31.h,
+                          //       child: TextButton(
+                          //           onPressed: () {},
+                          //           child: Text(
+                          //             "Privacy & Policy",
+                          //             style: TextStyle(
+                          //               fontSize: 13,
+                          //               fontWeight: FontWeight.bold,
+                          //             ),
+                          //           )),
+                          //     ),
+                          //   ],
+                          // )
                         ],
                       ),
                     ],
@@ -140,10 +144,7 @@ class _SignUpState extends State<SignUp> {
                     child: WomenCoButton(
                         title: "SIGN UP",
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => VerificationPage()));
+                          WomenCoCubit.GET(context).SignUp(context);
                         }),
                   ),
                 ],

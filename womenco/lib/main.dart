@@ -6,7 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco/view/Auth/login.dart';
+import 'package:womenco/view/Auth/verification.dart';
 import 'package:womenco/view/bookNow/cleaningBook.dart';
+import 'package:womenco/view/navigation/home/cleaningScreens.dart';
+import 'package:womenco/view/navigation/home/home_screen.dart';
 import 'package:womenco/view/navigation/navigation_screen.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
@@ -73,6 +76,11 @@ class UsersApp extends StatelessWidget {
           return ScreenUtilInit(
             builder: () {
               return MaterialApp(
+                routes: {
+                  "/cleaningPage": (context) => CleaningPage(),
+                  "/navigationScreen": (context) => NavigationScreen(),
+                  "/verification": (context) => VerificationPage()
+                },
                 navigatorKey: navkey,
                 theme: ThemeData(
                   primarySwatch: customSwatch,

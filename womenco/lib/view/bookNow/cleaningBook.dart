@@ -68,7 +68,9 @@ class _CleaningBookState extends State<CleaningBook> {
         WomenCoCubit cubit = WomenCoCubit.GET(context);
 
         return Scaffold(
-          appBar: customizedAppBar(context),
+          appBar: customizedAppBar(context, () {
+            Navigator.pushNamed(context, "/cleaningPage");
+          }),
           body: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(

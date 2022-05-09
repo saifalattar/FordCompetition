@@ -57,6 +57,7 @@ class _LogInState extends State<LogIn> {
                     ),
                     SizedBox(height: 30.h),
                     TextField(
+                      controller: WomenCoCubit.GET(context).password_LogIn,
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: WomenCoCubit.GET(context).isPasswordSecured,
                       decoration: InputDecoration(
@@ -97,10 +98,7 @@ class _LogInState extends State<LogIn> {
                       child: WomenCoButton(
                           title: "LOG IN",
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NavigationScreen()));
+                            WomenCoCubit.GET(context).Login(context);
                           }),
                     ),
                     Row(

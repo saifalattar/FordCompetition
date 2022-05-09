@@ -52,44 +52,42 @@ Widget serviceTile({
   ScreenUtil.init(BoxConstraints(),
       context: context, designSize: Size(414, 896));
 
-  return Expanded(
-    child: Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          alignment: Alignment.bottomCenter,
-          width: 118.w,
-          height: 118.h,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                color1,
-                color2,
-              ],
-            ),
+  return Stack(
+    clipBehavior: Clip.none,
+    children: [
+      Container(
+        alignment: Alignment.bottomCenter,
+        width: 118.w,
+        height: 118.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              color1,
+              color2,
+            ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              serviceName,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            serviceName,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        Positioned(
-          bottom: 30,
-          child: Image(height: 132.h, image: AssetImage(serviceImage)),
-        ),
-      ],
-    ),
+      ),
+      Positioned(
+        bottom: 30,
+        child: Image(height: 132.h, image: AssetImage(serviceImage)),
+      ),
+    ],
   );
 }
 
@@ -209,12 +207,12 @@ Widget customizedPageViewItem({
       ],
     );
 
-AppBar customizedAppBar(var context) => AppBar(
+AppBar customizedAppBar(var context, void Function() onPressed) => AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
-          Navigator.pop(context);
+          onPressed;
         },
         icon: Icon(Icons.arrow_back_ios),
       ),

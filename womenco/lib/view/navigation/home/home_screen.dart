@@ -42,29 +42,45 @@ class HomeScreen extends StatelessWidget {
                       serviceName: "Cleaning",
                       serviceImage: "assets/cleaning.png"),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CookingPage()));
-                  },
-                  child: serviceTile(
-                      context: context,
-                      color1: cookingColor1,
-                      color2: cookingColor2,
-                      serviceName: "Cooking",
-                      serviceImage: "assets/cooking.png"),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NursingPage()));
-                  },
-                  child: serviceTile(
-                      context: context,
-                      color1: nursingColor1,
-                      color2: nursingColor2,
-                      serviceName: "Nursing",
-                      serviceImage: "assets/nursing.png"),
+                Stack(alignment: AlignmentDirectional.center, children: [
+                  Container(
+                    foregroundDecoration: BoxDecoration(
+                      color: Colors.grey,
+                      backgroundBlendMode: BlendMode.saturation,
+                    ),
+                    child: serviceTile(
+                        context: context,
+                        color1: cookingColor1,
+                        color2: cookingColor2,
+                        serviceName: "Cooking",
+                        serviceImage: "assets/cooking.png"),
+                  ),
+                  Text(
+                    "Soon",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  )
+                ]),
+                Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Container(
+                      foregroundDecoration: BoxDecoration(
+                        color: Colors.grey,
+                        backgroundBlendMode: BlendMode.saturation,
+                      ),
+                      child: serviceTile(
+                          context: context,
+                          color1: nursingColor1,
+                          color2: nursingColor2,
+                          serviceName: "Nursing",
+                          serviceImage: "assets/nursing.png"),
+                    ),
+                    Text(
+                      "Soon",
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ),
               ],
             ),

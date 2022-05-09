@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:womenco/model/orderClass.dart';
 import 'package:womenco/model/userClass.dart';
 import 'package:womenco/model/workerClass.dart';
@@ -18,6 +20,9 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
   static WomenCoCubit GET(context) => BlocProvider.of(context);
 
 //-----------------------------Variables-----------------------------//
+  String BASE_URL = "https://api.womencoeg.com";
+  String? userToken;
+
   bool isPasswordSecured = true;
 
   var email_SignUp = TextEditingController();
@@ -89,5 +94,59 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
   void changeBottomNav(index) {
     currentIndex = index;
     emit(ChangeBottomNavState());
+  }
+
+  void SignUp(BuildContext context) async {
+    await Dio()
+        .post("$BASE_URL/user/signup", data: {
+          "name": name_SignUp.text,
+          "email": email_SignUp.text,
+          "password": password_SignUp.text,
+          "phone": phone_SignUp.text
+        })
+        .then((value) => Navigator.pushNamed(context, "/verification"))
+        .catchError((onError) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              backgroundColor: Colors.red,
+              content: Row(
+                children: [
+                  Icon(
+                    Icons.error,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(onError.response.data['message'])
+                ],
+              )));
+        });
+  }
+
+  void Login(context) async {
+    await Dio().post("$BASE_URL/user/login", data: {
+      "email": email_LogIn.text,
+      "password": password_LogIn.text
+    }).then((value) async {
+      SharedPreferences localDataBase = await SharedPreferences.getInstance();
+      await localDataBase
+          .setString("token", value.data['data']['token'])
+          .then((value) => Navigator.pushNamed(context, "/navigationScreen"));
+    }).catchError((onError) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.red,
+          content: Row(
+            children: [
+              Icon(
+                Icons.error,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(onError.response.data['message'])
+            ],
+          )));
+    });
   }
 }
