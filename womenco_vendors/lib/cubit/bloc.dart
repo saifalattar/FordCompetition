@@ -16,5 +16,12 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   var applyLastName = TextEditingController();
   var applyPassword = TextEditingController();
 
+  bool isPhoneFinished = false;
+  bool isPictureFinished = false;
+  bool isIDFinished = false;
+  bool isAddressFinished = false;
+  bool isCriminalFinished = false;
+  bool isServicesFinished = false;
+
   bool isPasswordSecured = true;
 }

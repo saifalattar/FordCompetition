@@ -71,7 +71,7 @@ class _ApplyNowState extends State<ApplyNow> {
                               .applyEmail
                               .text
                               .isNotEmpty) {
-                            Navigator.pushNamed(context, "/verification");
+                            Navigator.pushNamed(context, "/requiredSteps");
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Row(

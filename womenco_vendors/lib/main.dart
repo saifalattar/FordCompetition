@@ -4,7 +4,6 @@ import 'package:womenco_vendors/applyNow1.dart';
 import 'package:womenco_vendors/boarding.dart';
 import 'package:womenco_vendors/rquireSteps1.dart';
 import 'package:womenco_vendors/shared/component/applyNow2.dart';
-import 'package:womenco_vendors/verification.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +35,6 @@ class _VendorAppState extends State<VendorApp> {
         "/applyNow": (context) => ApplyNow(),
         "/applyNow_2": (context) => ApplyNow_2(),
         "/requiredSteps": (context) => RequiredSteps(),
-        "/verification": (context) => VerificationPage()
       },
     );
   }
