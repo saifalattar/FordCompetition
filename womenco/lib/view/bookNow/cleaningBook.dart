@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:group_button/group_button.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:womenco/model/orderClass.dart';
+import 'package:womenco/model/workerClass.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/view/finalizingOrder.dart';
 import 'package:womenco/view/navigation/home/home_screen.dart';
@@ -45,7 +47,7 @@ List<String> cityList = [
 var streetController;
 
 // Date Variables
-var dateController;
+DateTime dateController = DateTime.now();
 
 // Time Variables
 TimeOfDay timeOfDay = const TimeOfDay(hour: 8, minute: 30);
@@ -89,7 +91,8 @@ class _CleaningBookState extends State<CleaningBook> {
                             child: Text(
                           "Book A Worker",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
                             color: Colors.black,
                           ),
                         )),
@@ -167,7 +170,6 @@ class _CleaningBookState extends State<CleaningBook> {
                           onChanged: (double value) {
                             setState(() {
                               sizeController = value.round();
-                              print(sizeController);
                             });
                           },
                         ),
@@ -343,10 +345,9 @@ class _CleaningBookState extends State<CleaningBook> {
                         SizedBox(height: 25.h),
 
                         SfDateRangePicker(
-                          controller: dateController,
+                          controller: DateRangePickerController(),
                           showTodayButton: true,
                           view: DateRangePickerView.month,
-                          minDate: DateTime.now(),
                           monthViewSettings: DateRangePickerMonthViewSettings(
                             firstDayOfWeek: 1,
                             showTrailingAndLeadingDates: true,
@@ -457,7 +458,21 @@ class _CleaningBookState extends State<CleaningBook> {
                               timeController == null)
                           ? null
                           : () {
-                              Navigator.pushReplacement(
+                              WomenCoCubit.GET(context).addCurrentOrder(Order(
+                                  deliveryDate: dateController,
+                                  orderID: "sasasasas",
+                                  vendorData: WomenCoCubit.GET(context)
+                                      .allCleaningWorkers[0],
+                                  vendorPhoneNumber: "01157131310",
+                                  type: orderTypes.Cleaning,
+                                  status: orderStatus.Pending,
+                                  address: "Sheikh zayed",
+                                  day: 10,
+                                  year: 2022,
+                                  month: 5,
+                                  deliveryTime: timeOfDay,
+                                  price: 200.5));
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>

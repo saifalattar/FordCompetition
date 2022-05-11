@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco/model/orderClass.dart';
 import 'package:womenco/shared/component/components.dart';
 import 'package:womenco/view/bookNow/cleaningBook.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
@@ -33,12 +34,12 @@ class _FinishOrderState extends State<FinishOrder> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "ORDER ID - ${WomenCoCubit.GET(context).currentOrder.orderID}",
+                          "ORDER ID - ${currentOrder!.orderID}",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text(
-                          "Placed on - ${WomenCoCubit.GET(context).currentOrder.day} ${WomenCoCubit.GET(context).getMonthFromNum(WomenCoCubit.GET(context).currentOrder.month!.toInt())} ${WomenCoCubit.GET(context).currentOrder.year}",
+                          "Placed on - ${currentOrder!.day} ${WomenCoCubit.GET(context).getMonthFromNum(currentOrder!.month!.toInt())} ${currentOrder!.year}",
                           style: TextStyle(color: Colors.grey, fontSize: 16),
                         ),
                         SizedBox(
@@ -55,8 +56,7 @@ class _FinishOrderState extends State<FinishOrder> {
                           ],
                         ),
                         SizedBox(height: 11.h),
-                        Text(
-                            "${WomenCoCubit.GET(context).currentOrder.address}",
+                        Text("${currentOrder!.address}",
                             style: TextStyle(color: Colors.grey, fontSize: 18)),
                         SizedBox(height: 30.h),
                         Row(
@@ -70,8 +70,7 @@ class _FinishOrderState extends State<FinishOrder> {
                           ],
                         ),
                         SizedBox(height: 11.h),
-                        Text(
-                            "${WomenCoCubit.GET(context).currentOrder.vendorPhoneNumber}",
+                        Text("${currentOrder!.vendorPhoneNumber}",
                             style: TextStyle(color: Colors.grey, fontSize: 16)),
                         SizedBox(height: 30.h),
                         Row(
@@ -85,8 +84,7 @@ class _FinishOrderState extends State<FinishOrder> {
                           ],
                         ),
                         SizedBox(height: 11.h),
-                        Text(
-                            "${WomenCoCubit.GET(context).currentOrder.whatIsOrderType()}",
+                        Text("${currentOrder!.whatIsOrderType()}",
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 16,
@@ -95,7 +93,7 @@ class _FinishOrderState extends State<FinishOrder> {
                             "${appartmentTypesList[typeController.selectedIndex!.toInt()]} ${sizeController}m , ${appartmentRoomsList[roomsController.selectedIndex!.toInt()]} rooms ",
                             style: TextStyle(color: Colors.grey, fontSize: 16)),
                         Text(
-                            "Delivery in : ${WomenCoCubit.GET(context).getMonthFromNum(WomenCoCubit.GET(context).currentOrder.deliveryTime!.month)}  ${WomenCoCubit.GET(context).currentOrder.deliveryTime!.day}  ${WomenCoCubit.GET(context).currentOrder.deliveryTime!.hour}:${WomenCoCubit.GET(context).currentOrder.deliveryTime!.minute}",
+                            "Delivery in : ${WomenCoCubit.GET(context).getMonthFromNum(currentOrder!.deliveryDate!.month)}  ${currentOrder!.deliveryDate!.day}  ${currentOrder!.deliveryTime!.hour}:${currentOrder!.deliveryTime!.minute}",
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 16,
@@ -111,16 +109,13 @@ class _FinishOrderState extends State<FinishOrder> {
                           children: [
                             CircleAvatar(
                               backgroundImage: NetworkImage(
-                                  WomenCoCubit.GET(context)
-                                      .currentOrder
-                                      .vendorData!
-                                      .imageURL),
+                                  currentOrder!.vendorData!.imageURL),
                             ),
                             SizedBox(
                               width: 30.w,
                             ),
                             Text(
-                              "${WomenCoCubit.GET(context).currentOrder.vendorData!.name}",
+                              "${currentOrder!.vendorData!.name}",
                               style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.grey,
@@ -158,8 +153,7 @@ class _FinishOrderState extends State<FinishOrder> {
                         SizedBox(
                           height: 11.h,
                         ),
-                        Text(
-                            "Total Fees\t ${WomenCoCubit.GET(context).currentOrder.price} EGP",
+                        Text("Total Fees\t ${currentOrder!.price} EGP",
                             style: TextStyle(
                                 color: Colors.grey[600],
                                 fontWeight: FontWeight.bold,
@@ -172,11 +166,15 @@ class _FinishOrderState extends State<FinishOrder> {
                               Navigator.pop(context);
                             },
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
                                   Icons.cancel_outlined,
                                   color: Colors.red,
+                                  size: 35,
+                                ),
+                                SizedBox(
+                                  width: 20.w,
                                 ),
                                 Text("Cancel Order",
                                     style: TextStyle(
@@ -194,3 +192,5 @@ class _FinishOrderState extends State<FinishOrder> {
     );
   }
 }
+
+Order? currentOrder;

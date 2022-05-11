@@ -11,12 +11,13 @@ class Order {
   int? day;
   int? month;
   int? year;
-  DateTime? deliveryTime;
+  DateTime? deliveryDate;
+  TimeOfDay? deliveryTime;
   Worker? vendorData;
 
   Order(
       {required String orderID,
-      required vendorData,
+      required Worker vendorData,
       required String vendorPhoneNumber,
       required orderTypes type,
       required orderStatus status,
@@ -24,7 +25,8 @@ class Order {
       required int day,
       required int year,
       required int month,
-      required DateTime? deliveryTime,
+      required TimeOfDay? deliveryTime,
+      required DateTime deliveryDate,
       required double price}) {
     this.vendorData = vendorData;
     this.deliveryTime = deliveryTime;
@@ -34,6 +36,7 @@ class Order {
     this.status = status;
     this.address = address;
     this.price = price;
+    this.deliveryDate = deliveryDate;
     this.year = year;
     this.day = day;
     this.month = month;

@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:womenco/model/orderClass.dart';
 import 'package:womenco/model/userClass.dart';
 import 'package:womenco/model/workerClass.dart';
+import 'package:womenco/view/finalizingOrder.dart';
 import 'package:womenco/view/navigation/home/home_screen.dart';
 import 'package:womenco/view/navigation/order_screen.dart';
 import 'package:womenco/view/navigation/profile/profile_screen.dart';
@@ -64,31 +65,9 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
       Phone: "01157131310",
       profileImageURL: ""); //the current user
 
-  Order currentOrder = Order(
-      deliveryTime: DateTime.now(),
-      vendorData: Worker(
-          imageURL: "",
-          name: "saif",
-          profession: "Cleaner",
-          numOfOrders: 20,
-          rate: 4.3,
-          availability: true,
-          lastOrderDate_Day: 11,
-          lastOrderDate_Month: 12,
-          lastOrderDate_Year: 2002),
-      vendorPhoneNumber: "002078476457",
-      orderID: "2893984r",
-      type: orderTypes.Cleaning,
-      status: orderStatus.Pending,
-      address: "Sheikh zayed",
-      day: 11,
-      year: 2002,
-      month: 12,
-      price: 2122); // the current order in the finalizing order page
-
   List<Order> allOrders = [
     Order(
-        deliveryTime: DateTime.now(),
+        deliveryTime: TimeOfDay.now(),
         vendorData: Worker(
             imageURL: "",
             name: "saif",
@@ -101,6 +80,7 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
             lastOrderDate_Year: 2002),
         vendorPhoneNumber: "00207466457",
         orderID: "2929382d",
+        deliveryDate: DateTime.now(),
         type: orderTypes.Cleaning,
         status: orderStatus.Pending,
         address: "october",
@@ -109,7 +89,8 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
         month: 3,
         price: 122),
     Order(
-        deliveryTime: DateTime.now(),
+        deliveryDate: DateTime.now(),
+        deliveryTime: TimeOfDay.now(),
         vendorData: Worker(
             imageURL: "",
             name: "saif",
@@ -131,8 +112,18 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
         price: 988),
   ]; //to get all user's orders and put interact with them in orders screen page
 
-  List<Worker> allCleaningWorkers =
-      []; //to add all workers in cleaning from database
+  List<Worker> allCleaningWorkers = [
+    Worker(
+        imageURL: "",
+        name: "saif",
+        profession: "Cleaner",
+        numOfOrders: 20,
+        rate: 4.3,
+        availability: true,
+        lastOrderDate_Day: 11,
+        lastOrderDate_Month: 12,
+        lastOrderDate_Year: 2002)
+  ]; //to add all workers in cleaning from database
   List<Worker> allCookingWorkers =
       []; //to add all workers in cooking from database
   List<Worker> allNursingWorkers =
@@ -158,6 +149,10 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
       "December"
     ];
     return months[monthNum - 1];
+  }
+
+  void addCurrentOrder(Order order) {
+    currentOrder = order;
   }
 
   void changeBottomNav(index) {
