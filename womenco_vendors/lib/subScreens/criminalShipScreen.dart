@@ -1,29 +1,38 @@
-import 'dart:io';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:womenco_vendors/cubit/bloc.dart';
 import 'package:womenco_vendors/cubit/states.dart';
 import 'package:womenco_vendors/shared/component/components.dart';
 
-class ProfilePhoto extends StatefulWidget {
-  const ProfilePhoto({Key? key}) : super(key: key);
+class CriminalShipScreen extends StatefulWidget {
+  const CriminalShipScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePhoto> createState() => _ProfilePhotoState();
+  State<CriminalShipScreen> createState() => _CriminalShipScreenState();
 }
 
-class _ProfilePhotoState extends State<ProfilePhoto> {
+class _CriminalShipScreenState extends State<CriminalShipScreen> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(414, 896));
+
     return BlocProvider(
       create: (context) => WomenCoCubitVendors(),
       child: BlocConsumer<WomenCoCubitVendors, WomenCoStatesVendors>(
           builder: (context, states) {
             return Scaffold(
-              bottomSheet: isBottomSheetOpened
+              appBar: AppBar(
+                  leading: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.black,
+                      ))),
+              bottomSheet: isCriminalBottomSheetOpened
                   ? BottomSheet(
                       backgroundColor: Colors.white,
                       enableDrag: false,
@@ -66,42 +75,41 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
                             ),
                           ))
                   : null,
-              appBar: AppBar(
-                  leading: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                      ))),
               body: Padding(
                 padding: const EdgeInsets.only(
-                    top: 30, bottom: 100, left: 30, right: 30),
+                    top: 30, left: 30, right: 30, bottom: 100),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Take your profile photo\n",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20)),
-                          Text(
-                              "Your profile photo helps people recognize you. Please note that once you submit your profile photo it cannot be changed.\n\n",
-                              style: TextStyle(fontSize: 18)),
-                          Text("""
-1 Face the camera directly with your eyes and mouth clearly visible.
-2 Make sure the photo is well lit, free of glare and in focus.
-3 No photos of a photo, filters, or alterations.""",
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 16)),
-                        ]),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Criminal Ship",
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Make sure all information is readable, not blurry and that all corners of the document are visible",
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 91.h,
+                        ),
+                        Center(
+                            child: Image.asset(
+                          "assets/criminalShip.png",
+                          width: 222.w,
+                          height: 322.h,
+                        ))
+                      ],
+                    ),
                     WomenCoButton(context, title: "Take Photo", onPressed: () {
                       setState(() {
-                        isBottomSheetOpened = !isBottomSheetOpened;
+                        isCriminalBottomSheetOpened =
+                            !isCriminalBottomSheetOpened;
                       });
-                    }, color: Colors.blue[200]),
+                    }, color: Colors.blue[200])
                   ],
                 ),
               ),
@@ -112,4 +120,4 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
   }
 }
 
-bool isBottomSheetOpened = false;
+bool isCriminalBottomSheetOpened = false;

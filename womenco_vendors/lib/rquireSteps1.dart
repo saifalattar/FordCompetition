@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco_vendors/cubit/bloc.dart';
 import 'package:womenco_vendors/cubit/states.dart';
 import 'package:womenco_vendors/shared/component/components.dart';
+import 'package:womenco_vendors/subScreens/criminalShipScreen.dart';
+import 'package:womenco_vendors/subScreens/nationalIDScreen.dart';
+import 'package:womenco_vendors/subScreens/phoneNumberScreen.dart';
 import 'package:womenco_vendors/subScreens/profilePhotoScreen.dart';
 import 'package:womenco_vendors/subScreens/servicesScreen.dart';
 
@@ -55,14 +58,18 @@ class _RequiredStepsState extends State<RequiredSteps> {
               {"Services": WomenCoCubitVendors.GET(context).isServicesFinished}
             ];
             List<dynamic> onPressedFunctions = [
-              () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ServicesScreen())),
+              () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MobileNumberScreen())),
               () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ProfilePhoto())),
               () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ServicesScreen())),
-              () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ServicesScreen())),
+                  MaterialPageRoute(builder: (context) => NationalIDScreen())),
+              () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CriminalShipScreen())),
               () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ServicesScreen()))
             ];

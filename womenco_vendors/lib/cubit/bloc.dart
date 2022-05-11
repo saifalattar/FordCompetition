@@ -19,6 +19,10 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   var applyLastName = TextEditingController();
   var applyPassword = TextEditingController();
 
+  var nationalID = TextEditingController();
+
+  var phoneNumber = TextEditingController();
+
   //----------------- variables of required page ------------------//
   bool isPhoneFinished = false;
   bool isPictureFinished = false;
@@ -31,9 +35,10 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
 
   File? profileImage;
 
-  void addImage(String path) async {
+  String? selectedService;
+
+  void addProfileImage(String path) async {
     profileImage = File(path);
-    ifProfileAdded = Text("dsds");
     emit(AddingImage());
   }
 }
