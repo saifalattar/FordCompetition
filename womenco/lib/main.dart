@@ -38,8 +38,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  print(await FirebaseMessaging.instance
-      .getToken()); // to get the current device FCM token
+  //print(await FirebaseMessaging.instance.getToken()); // to get the current device FCM token
 
   final FirebaseMessaging notifications = FirebaseMessaging.instance;
 

@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:womenco_vendors/cubit/bloc.dart';
 import 'package:womenco_vendors/cubit/states.dart';
 import 'package:womenco_vendors/shared/component/components.dart';
+import 'package:womenco_vendors/subScreens/profilePhotoScreen.dart';
+import 'package:womenco_vendors/subScreens/servicesScreen.dart';
 
 class RequiredSteps extends StatefulWidget {
   const RequiredSteps({Key? key}) : super(key: key);
@@ -46,12 +48,23 @@ class _RequiredStepsState extends State<RequiredSteps> {
                     WomenCoCubitVendors.GET(context).isPictureFinished
               },
               {"National ID": WomenCoCubitVendors.GET(context).isIDFinished},
-              {"Address": WomenCoCubitVendors.GET(context).isAddressFinished},
               {
                 "Criminal Chip":
                     WomenCoCubitVendors.GET(context).isCriminalFinished
               },
               {"Services": WomenCoCubitVendors.GET(context).isServicesFinished}
+            ];
+            List<dynamic> onPressedFunctions = [
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ServicesScreen())),
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePhoto())),
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ServicesScreen())),
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ServicesScreen())),
+              () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ServicesScreen()))
             ];
 
             return Scaffold(
@@ -72,8 +85,10 @@ class _RequiredStepsState extends State<RequiredSteps> {
                         if (index < 1) {
                           return titles[index];
                         } else {
-                          return RequiredTiles(titles[index].keys.single,
-                              titles[index].values.single, () {});
+                          return RequiredTiles(
+                              titles[index].keys.single,
+                              titles[index].values.single,
+                              onPressedFunctions[index - 1]);
                         }
                       },
                       separatorBuilder: (context, index) {

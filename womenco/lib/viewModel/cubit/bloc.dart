@@ -64,8 +64,43 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
       Phone: "01157131310",
       profileImageURL: ""); //the current user
 
+  Order currentOrder = Order(
+      deliveryTime: DateTime.now(),
+      vendorData: Worker(
+          imageURL: "",
+          name: "saif",
+          profession: "Cleaner",
+          numOfOrders: 20,
+          rate: 4.3,
+          availability: true,
+          lastOrderDate_Day: 11,
+          lastOrderDate_Month: 12,
+          lastOrderDate_Year: 2002),
+      vendorPhoneNumber: "002078476457",
+      orderID: "2893984r",
+      type: orderTypes.Cleaning,
+      status: orderStatus.Pending,
+      address: "Sheikh zayed",
+      day: 11,
+      year: 2002,
+      month: 12,
+      price: 2122); // the current order in the finalizing order page
+
   List<Order> allOrders = [
     Order(
+        deliveryTime: DateTime.now(),
+        vendorData: Worker(
+            imageURL: "",
+            name: "saif",
+            profession: "Cleaner",
+            numOfOrders: 20,
+            rate: 4.3,
+            availability: true,
+            lastOrderDate_Day: 11,
+            lastOrderDate_Month: 12,
+            lastOrderDate_Year: 2002),
+        vendorPhoneNumber: "00207466457",
+        orderID: "2929382d",
         type: orderTypes.Cleaning,
         status: orderStatus.Pending,
         address: "october",
@@ -74,6 +109,19 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
         month: 3,
         price: 122),
     Order(
+        deliveryTime: DateTime.now(),
+        vendorData: Worker(
+            imageURL: "",
+            name: "saif",
+            profession: "Cleaner",
+            numOfOrders: 20,
+            rate: 4.3,
+            availability: true,
+            lastOrderDate_Day: 11,
+            lastOrderDate_Month: 12,
+            lastOrderDate_Year: 2002),
+        vendorPhoneNumber: "00207466457",
+        orderID: "98787654h",
         type: orderTypes.Cleaning,
         status: orderStatus.Completed,
         address: "Cairo",
@@ -90,7 +138,28 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
   List<Worker> allNursingWorkers =
       []; //to add all workers in nursing from database
 
+  // finishing order variables
+
   //-----------------------------Methods-----------------------------//
+
+  String getMonthFromNum(int monthNum) {
+    List months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    return months[monthNum - 1];
+  }
+
   void changeBottomNav(index) {
     currentIndex = index;
     emit(ChangeBottomNavState());

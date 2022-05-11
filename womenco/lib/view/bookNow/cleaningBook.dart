@@ -6,10 +6,52 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:group_button/group_button.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:womenco/shared/component/components.dart';
+import 'package:womenco/view/finalizingOrder.dart';
 import 'package:womenco/view/navigation/home/home_screen.dart';
 import 'package:womenco/view/style/colors.dart';
 import 'package:womenco/viewModel/cubit/bloc.dart';
 import 'package:womenco/viewModel/cubit/states.dart';
+
+////    Variables    ////
+
+// Appartment Type Variables
+final typeController = GroupButtonController(
+  selectedIndex: 0,
+);
+
+List appartmentTypesList = ["Apartment", "House", "Villa"];
+var selectedAppartType; //check
+
+// Appartment Size Variables
+var sizeController = 120;
+
+// Appartment Rooms Variables
+final roomsController = GroupButtonController(
+  selectedIndex: 0,
+);
+List appartmentRoomsList = ["1", "2", "3", "4+"];
+var selectedAppartRooms; //check
+
+// Location Details Variables
+var governorateController;
+List<String> governorateList = ["Giza", "Cairo"];
+var cityController;
+List<String> cityList = [
+  "Maadi",
+  "Nasr City",
+  "6th of October",
+  "5th Settelment"
+];
+var streetController;
+
+// Date Variables
+var dateController;
+
+// Time Variables
+TimeOfDay timeOfDay = const TimeOfDay(hour: 8, minute: 30);
+var timeController = TextEditingController();
+
+var verificationCode = "123456"; //remove (just for test)
 
 class CleaningBook extends StatefulWidget {
   @override
@@ -17,46 +59,6 @@ class CleaningBook extends StatefulWidget {
 }
 
 class _CleaningBookState extends State<CleaningBook> {
-  ////    Variables    ////
-
-  // Appartment Type Variables
-  final typeController = GroupButtonController(
-    selectedIndex: 0,
-  );
-  List appartmentTypesList = ["Apartment", "House", "Villa"];
-  var selectedAppartType; //check
-
-  // Appartment Size Variables
-  var sizeController = 120;
-
-  // Appartment Rooms Variables
-  final roomsController = GroupButtonController(
-    selectedIndex: 0,
-  );
-  List appartmentRoomsList = ["1", "2", "3", "4+"];
-  var selectedAppartRooms; //check
-
-  // Location Details Variables
-  var governorateController;
-  List<String> governorateList = ["Giza", "Cairo"];
-  var cityController;
-  List<String> cityList = [
-    "Maadi",
-    "Nasr City",
-    "6th of October",
-    "5th Settelment"
-  ];
-  var streetController;
-
-  // Date Variables
-  var dateController;
-
-  // Time Variables
-  TimeOfDay timeOfDay = const TimeOfDay(hour: 8, minute: 30);
-  var timeController = TextEditingController();
-
-  var verificationCode = "123456"; //remove (just for test)
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(BoxConstraints(),
@@ -459,7 +461,7 @@ class _CleaningBookState extends State<CleaningBook> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          HomeScreen())); //PaymentScreen()
+                                          FinishOrder())); //PaymentScreen()
                             },
                       child: Text(
                         "NEXT",

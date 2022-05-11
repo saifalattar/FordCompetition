@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:womenco/model/workerClass.dart';
 
 class Order {
+  String? orderID;
+  String? vendorPhoneNumber;
   orderTypes? type;
   orderStatus? status;
   String? address;
@@ -8,15 +11,25 @@ class Order {
   int? day;
   int? month;
   int? year;
+  DateTime? deliveryTime;
+  Worker? vendorData;
 
   Order(
-      {required orderTypes type,
+      {required String orderID,
+      required vendorData,
+      required String vendorPhoneNumber,
+      required orderTypes type,
       required orderStatus status,
       required String address,
       required int day,
       required int year,
       required int month,
+      required DateTime? deliveryTime,
       required double price}) {
+    this.vendorData = vendorData;
+    this.deliveryTime = deliveryTime;
+    this.vendorPhoneNumber = vendorPhoneNumber;
+    this.orderID = orderID;
     this.type = type;
     this.status = status;
     this.address = address;
