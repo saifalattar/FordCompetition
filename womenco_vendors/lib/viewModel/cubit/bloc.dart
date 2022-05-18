@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:womenco_vendors/cubit/states.dart';
-import 'package:womenco_vendors/subScreens/profilePhotoScreen.dart';
+import 'package:womenco_vendors/view/subScreens/profilePhotoScreen.dart';
+import 'package:womenco_vendors/viewModel/cubit/states.dart';
 
 class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   WomenCoCubitVendors() : super(InitialState());
@@ -22,6 +22,12 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   var nationalID = TextEditingController();
 
   var phoneNumber = TextEditingController();
+  File? profileImage;
+  File? criminalChip;
+
+  String? selectedService;
+  String emailVerificationCode = "";
+  String phoneVerificationCode = "";
 
   //----------------- variables of required page ------------------//
   bool isPhoneFinished = false;
@@ -29,16 +35,34 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   bool isIDFinished = false;
   bool isCriminalFinished = false;
   bool isServicesFinished = false;
-  //-----------------------------------------------------------------//
-
   bool isPasswordSecured = true;
 
-  File? profileImage;
+  //-------------------------Methods---------------------------//
 
-  String? selectedService;
+  void AddPhoneNumber() {
+    isPhoneFinished = true;
+    emit(PhoneNumberAdded());
+  }
 
   void addProfileImage(String path) async {
     profileImage = File(path);
-    emit(AddingImage());
+    isPictureFinished = true;
+    emit(ImageAdded());
+  }
+
+  void addNationalID() {
+    isIDFinished = true;
+    emit(NationalIDAdded());
+  }
+
+  void addCriminalChip(String path) async {
+    criminalChip = File(path);
+    isCriminalFinished = true;
+    emit(CriminalChipAdded());
+  }
+
+  void addService() {
+    isServicesFinished = true;
+    emit(ServicesAdded());
   }
 }
