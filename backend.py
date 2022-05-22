@@ -63,7 +63,7 @@ def verifyEmail(sendTo: str, token: str):
     currentUser[token] = otp
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
     server.ehlo()
-    server.login("saifelbob2002@gmail.com", "saif@2002")
+    server.login("email", "password")
     server.sendmail("Women Co.", sendTo, message.as_string())
     print("Email sent")
 
@@ -93,12 +93,16 @@ def sendInfoToVendor(sendTo: str, name: str):
 
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
     server.ehlo()
-    server.login("saifelbob2002@gmail.com", "saif@2002")
+    server.login("email", "password")
     server.sendmail("Women Co.", sendTo, message.as_string())
     print("Email sent")
     return {"id":randID, "password":randPassword}
 
-        
+
+@app.post("/")
+def home(numbers: dict = Body(...)):
+
+    return {"sum": numbers["1"]+numbers["2"]}
 
 @app.post("/signUp")
 def signUp(userData: User):
