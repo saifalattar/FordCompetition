@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:womenco/model/workerClass.dart';
+import 'package:womenco_vendors/model/workerClass.dart';
+import 'package:womenco_vendors/shared/colors.dart';
 
 class Order {
   String? orderID;
-  String? vendorPhoneNumber;
   orderTypes? type;
   orderStatus? status;
   String? address;
@@ -16,7 +16,6 @@ class Order {
 
   Order(
       {required String orderID,
-      required String vendorPhoneNumber,
       required orderTypes type,
       required orderStatus status,
       required String address,
@@ -27,7 +26,6 @@ class Order {
       required DateTime deliveryDate,
       required double price}) {
     this.deliveryTime = deliveryTime;
-    this.vendorPhoneNumber = vendorPhoneNumber;
     this.orderID = orderID;
     this.type = type;
     this.status = status;
@@ -84,9 +82,13 @@ class Order {
             whatIsStatus(),
           ],
         ),
-        VerticalDivider(
-          color: Colors.red[100],
-          thickness: 2,
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Container(
+            width: 2,
+            height: 70,
+            color: buttonColor1,
+          ),
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

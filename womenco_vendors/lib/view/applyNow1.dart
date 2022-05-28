@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:womenco_vendors/cubit/bloc.dart';
-import 'package:womenco_vendors/cubit/states.dart';
+import 'package:womenco_vendors/viewModel/cubit/states.dart';
+import 'package:womenco_vendors/viewModel/cubit/bloc.dart';
 import 'package:womenco_vendors/shared/component/components.dart';
 
 class ApplyNow extends StatefulWidget {

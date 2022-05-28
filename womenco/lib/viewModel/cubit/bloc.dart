@@ -68,16 +68,6 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
   List<Order> allOrders = [
     Order(
         deliveryTime: TimeOfDay.now(),
-        vendorData: Worker(
-            imageURL: "",
-            name: "saif",
-            profession: "Cleaner",
-            numOfOrders: 20,
-            rate: 4.3,
-            availability: true,
-            lastOrderDate_Day: 11,
-            lastOrderDate_Month: 12,
-            lastOrderDate_Year: 2002),
         vendorPhoneNumber: "00207466457",
         orderID: "2929382d",
         deliveryDate: DateTime.now(),
@@ -91,16 +81,6 @@ class WomenCoCubit extends Cubit<WomenCoStates> {
     Order(
         deliveryDate: DateTime.now(),
         deliveryTime: TimeOfDay.now(),
-        vendorData: Worker(
-            imageURL: "",
-            name: "saif",
-            profession: "Cleaner",
-            numOfOrders: 20,
-            rate: 4.3,
-            availability: true,
-            lastOrderDate_Day: 11,
-            lastOrderDate_Month: 12,
-            lastOrderDate_Year: 2002),
         vendorPhoneNumber: "00207466457",
         orderID: "98787654h",
         type: orderTypes.Cleaning,
