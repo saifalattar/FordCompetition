@@ -11,3 +11,5 @@ class NationalIDAdded extends WomenCoStatesVendors {}
 class CriminalChipAdded extends WomenCoStatesVendors {}
 
 class ServicesAdded extends WomenCoStatesVendors {}
+
+class CurrentOrderUpdated extends WomenCoStatesVendors {}

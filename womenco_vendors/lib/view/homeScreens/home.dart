@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:womenco_vendors/model/orderClass.dart';
+import 'package:womenco_vendors/model/userClass.dart';
 import 'package:womenco_vendors/shared/colors.dart';
+import 'package:womenco_vendors/shared/component/components.dart';
+import 'package:womenco_vendors/view/subScreens/finalizingOrder.dart';
 import 'package:womenco_vendors/viewModel/cubit/bloc.dart';
 import 'package:womenco_vendors/viewModel/cubit/states.dart';
 
@@ -207,17 +211,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 25.h,
                 ),
-                Center(
-                  child: Card(
-                    child: cubit.allOrders.isEmpty
-                        ? Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Text("You have no upcoming orders"),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: cubit.allOrders[0].orderWidget(),
-                          ),
+                GestureDetector(
+                  onTap: () {
+                    cubit.setCurrentOrder(
+                        context,
+                        Order(
+                            userData: User(
+                                Name: "Saif",
+                                Email: "Saifelbob2002@gmail.com",
+                                Phone: "01157131310",
+                                profileImageURL: ""),
+                            deliveryTime: TimeOfDay.now(),
+                            orderID: "2929382d",
+                            deliveryDate: DateTime.now(),
+                            type: orderTypes.Cleaning,
+                            status: orderStatus.Pending,
+                            address: "october",
+                            day: 20,
+                            year: 2022,
+                            month: 9,
+                            price: 192));
+                  },
+                  child: Center(
+                    child: Card(
+                      child: cubit.allOrders.isEmpty
+                          ? Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text("You have no upcoming orders"),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: cubit.allOrders[0].orderWidget(context),
+                            ),
+                    ),
                   ),
                 ),
                 SizedBox(

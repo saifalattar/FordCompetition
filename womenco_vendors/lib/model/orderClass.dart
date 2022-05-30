@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:womenco_vendors/model/workerClass.dart';
+import 'package:womenco_vendors/model/userClass.dart';
 import 'package:womenco_vendors/shared/colors.dart';
+import 'package:womenco_vendors/view/homeScreens/home.dart';
+import 'package:womenco_vendors/view/subScreens/allOrders.dart';
+import 'package:womenco_vendors/view/subScreens/finalizingOrder.dart';
 
 class Order {
   String? orderID;
@@ -13,9 +16,11 @@ class Order {
   int? year;
   DateTime? deliveryDate;
   TimeOfDay? deliveryTime;
+  User? userData;
 
   Order(
       {required String orderID,
+      required User userData,
       required orderTypes type,
       required orderStatus status,
       required String address,
@@ -25,6 +30,7 @@ class Order {
       required TimeOfDay? deliveryTime,
       required DateTime deliveryDate,
       required double price}) {
+    this.userData = userData;
     this.deliveryTime = deliveryTime;
     this.orderID = orderID;
     this.type = type;
@@ -65,46 +71,66 @@ class Order {
     }
   }
 
-  Widget orderWidget() {
-    return Row(
+  Widget orderWidget(context) {
+    return Column(
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Row(
           children: [
-            Text(
-              "${this.year}/${this.month}/${this.day}",
-              style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "${this.year}/${this.month}/${this.day}",
+                  style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+                ),
+                Text(
+                  whatIsOrderType(),
+                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                ),
+                whatIsStatus(),
+              ],
             ),
-            Text(
-              whatIsOrderType(),
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                width: 2,
+                height: 70,
+                color: buttonColor1,
+              ),
             ),
-            whatIsStatus(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${this.address}",
+                  style: TextStyle(fontSize: 17, color: Colors.grey[600]),
+                ),
+                Text("${this.price!.toInt()} EGP",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey[600],
+                        fontWeight: FontWeight.bold))
+              ],
+            )
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Container(
-            width: 2,
-            height: 70,
-            color: buttonColor1,
-          ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "${this.address}",
-              style: TextStyle(fontSize: 17, color: Colors.grey[600]),
-            ),
-            Text("${this.price!.toInt()} EGP",
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
-                    fontWeight: FontWeight.bold))
-          ],
-        )
+        TextButton(
+            style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.black)),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AllPastOrder()));
+            },
+            child: Row(
+              children: [
+                Text(
+                  "See Past Orders   ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Icon(Icons.arrow_forward_ios, size: 20)
+              ],
+            ))
       ],
     );
   }

@@ -78,3 +78,12 @@ Widget RequiredTiles(String title, bool isFinished, void Function() onPressed,
     ),
   );
 }
+
+AppBar customizedAppBar(var context, void Function() onPressed) => AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: IconButton(
+        onPressed: onPressed,
+        icon: Icon(Icons.arrow_back_ios),
+      ),
+    );

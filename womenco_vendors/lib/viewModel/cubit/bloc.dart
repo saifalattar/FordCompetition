@@ -7,10 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:womenco_vendors/main.dart';
 import 'package:womenco_vendors/model/orderClass.dart';
+import 'package:womenco_vendors/model/userClass.dart';
 import 'package:womenco_vendors/model/workerClass.dart';
 import 'package:womenco_vendors/shared/component/components.dart';
 import 'package:womenco_vendors/view/boarding.dart';
 import 'package:womenco_vendors/view/homeScreens/firstTimeLanguage.dart';
+import 'package:womenco_vendors/view/subScreens/finalizingOrder.dart';
 import 'package:womenco_vendors/view/subScreens/profilePhotoScreen.dart';
 import 'package:womenco_vendors/viewModel/cubit/states.dart';
 
@@ -57,8 +59,15 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
 
   static const String BASE_URL = "https://api.womencoeg.com";
 
+  Order? currentOrder;
+
   List<Order> allOrders = [
     Order(
+        userData: User(
+            Name: "Saif",
+            Email: "Saifelbob2002@gmail.com",
+            Phone: "01157131310",
+            profileImageURL: ""),
         deliveryTime: TimeOfDay.now(),
         orderID: "2929382d",
         deliveryDate: DateTime.now(),
@@ -77,6 +86,33 @@ class WomenCoCubitVendors extends Cubit<WomenCoStatesVendors> {
   bool isCriminalFinished = false;
   bool isServicesFinished = false;
   //-----------------------------------------------------------------//
+
+  String getMonthFromNum(int monthNum) {
+    List months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    return months[monthNum - 1];
+  }
+
+  void setCurrentOrder(BuildContext context, Order theOrder) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => FinishOrder(
+                  theOrder: theOrder,
+                )));
+  }
 
   Future chooseLanguage(bool isEnglish) async {
     SharedPreferences localData = await local;
