@@ -1,0 +1,15 @@
+return BlocProvider(
+      create: (context) => WomenCoCubit(),
+      child: BlocConsumer<WomenCoCubit, WomenCoStates>(
+          builder: (context, states) {}, listener: (context, states) {}),
+    );
+
+
+Variant: debug
+Config: debug
+Store: C:\Users\Saif\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 23:FA:27:65:5E:E0:38:1B:65:A4:47:65:D8:8F:CD:8E
+SHA1: DB:5D:19:BE:F3:48:14:6F:13:0F:7F:90:36:52:EA:A7:B7:A7:61:63
+SHA-256: 1C:99:E5:F9:CF:50:A3:A6:F2:C7:E3:18:11:F2:DB:19:AD:7B:86:61:53:D8:D5:BA:22:F7:20:1A:D6:63:F3:DE
+Valid until: Wednesday, May 24, 2051
